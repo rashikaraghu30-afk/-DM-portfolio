@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rashika Raghu's digital marketing portfolio featuring WordPress website content, social media marketing, SEO, and Google Ads and Meta Ads practical training.">
+  <title>Rashika Raghu | Digital Marketing Portfolio</title>
+  <style>
+    :root {
+      --beige: #e9dfd0;
+      --cream: #f8f5ef;
+      --ink: #211e1a;
+      --muted: #6f675e;
+      --line: #d8cbbb;
+      --white: #fffdf9;
+      --accent: #9a7955;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, 90%); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(248,245,239,.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    .nav {
+      min-height: 74px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
+    }
+    .brand { font-size: 1rem; font-weight: 800; letter-spacing: .12em; }
+    .brand span { color: var(--accent); }
+    nav { display: flex; flex-wrap: wrap; gap: 22px; align-items: center; }
+    nav a { font-size: .88rem; color: var(--muted); }
+    nav a:hover { color: var(--ink); }
+    .menu-toggle {
+      display: none; border: 1px solid var(--line); background: transparent;
+      padding: 8px 12px; border-radius: 6px; cursor: pointer;
+    }
+    .hero { padding: 100px 0 90px; }
+    .hero-grid { display: grid; grid-template-columns: 1.4fr .8fr; gap: 60px; align-items: center; }
+    .eyebrow {
+      color: var(--accent); text-transform: uppercase; letter-spacing: .2em;
+      font-size: .76rem; font-weight: 700; margin-bottom: 18px;
+    }
+    h1 { font-size: clamp(2.8rem, 7vw, 5.6rem); line-height: .98; letter-spacing: -.06em; max-width: 760px; }
+    h1 span { color: var(--accent); }
+    .hero p.lead { margin-top: 26px; max-width: 640px; color: var(--muted); font-size: 1.08rem; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 19px; border: 1px solid var(--ink); border-radius: 4px;
+      font-size: .9rem; font-weight: 700; transition: .2s;
+    }
+    .btn.primary { background: var(--ink); color: var(--white); }
+    .btn:hover { transform: translateY(-2px); }
+    .hero-card {
+      background: var(--beige); padding: 34px; border-radius: 8px;
+      min-height: 300px; display: flex; flex-direction: column; justify-content: space-between;
+      border: 1px solid var(--line);
+    }
+    .monogram { font-size: 4.5rem; line-height: 1; font-family: Georgia, serif; }
+    .hero-card .small { color: var(--muted); font-size: .85rem; }
+    .hero-card h2 { font-size: 1.45rem; line-height: 1.25; margin: 22px 0 10px; }
+    section { padding: 82px 0; }
+    section.alt { background: #eee5d8; }
+    .section-head { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin-bottom: 36px; }
+    .section-kicker { text-transform: uppercase; letter-spacing: .18em; font-size: .74rem; color: var(--accent); font-weight: 700; }
+    h2.section-title { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; letter-spacing: -.04em; margin-top: 8px; }
+    .section-intro { color: var(--muted); max-width: 450px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+    .about-copy { font-size: 1.05rem; color: var(--muted); }
+    .stat-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .stat { border: 1px solid var(--line); padding: 20px; border-radius: 6px; background: rgba(255,253,249,.55); }
+    .stat strong { display: block; font-size: 1rem; margin-bottom: 4px; }
+    .stat span { font-size: .85rem; color: var(--muted); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { background: var(--white); border: 1px solid var(--line); padding: 26px; border-radius: 7px; display: flex; flex-direction: column; min-height: 300px; }
+    .card-number { color: var(--accent); font-size: .76rem; letter-spacing: .15em; font-weight: 700; }
+    .card h3 { font-size: 1.35rem; line-height: 1.25; margin: 16px 0 10px; }
+    .card p { color: var(--muted); font-size: .94rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
+    .tag { border: 1px solid var(--line); border-radius: 30px; padding: 5px 9px; font-size: .75rem; color: var(--muted); }
+    .card .card-link { margin-top: auto; padding-top: 22px; font-size: .85rem; font-weight: 700; }
+    .note { font-size: .85rem; color: var(--muted); margin-top: 22px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .skill-box { padding: 24px; border: 1px solid var(--line); border-radius: 6px; background: var(--white); }
+    .skill-box h3 { margin-bottom: 12px; font-size: 1.05rem; }
+    .skill-box p { color: var(--muted); }
+    .timeline { border-left: 1px solid var(--accent); margin-left: 8px; padding-left: 26px; display: grid; gap: 30px; }
+    .timeline-item { position: relative; }
+    .timeline-item::before { content: ""; position: absolute; left: -32px; top: 8px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); }
+    .timeline-item .date { color: var(--accent); font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 700; }
+    .timeline-item h3 { margin: 5px 0; font-size: 1.2rem; }
+    .timeline-item p { color: var(--muted); max-width: 760px; }
+    .contact-panel { background: var(--ink); color: var(--white); border-radius: 8px; padding: clamp(28px, 6vw, 60px); display: grid; grid-template-columns: 1.2fr 1fr; gap: 35px; }
+    .contact-panel .section-kicker { color: #c8a982; }
+    .contact-panel h2 { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.05; margin: 12px 0 18px; }
+    .contact-panel p { color: #d2cbc2; }
+    .contact-details { display: grid; gap: 16px; align-content: center; }
+    .contact-details a, .contact-details div { padding-bottom: 12px; border-bottom: 1px solid #4b453e; overflow-wrap: anywhere; }
+    .contact-details span { display: block; color: #c8a982; font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; }
+    footer { padding: 25px 0; color: var(--muted); font-size: .82rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 800px) {
+      .hero-grid, .about-grid, .contact-panel { grid-template-columns: 1fr; }
+      .hero { padding: 70px 0; }
+      .hero-grid { gap: 32px; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .section-head { display: block; }
+      .section-intro { margin-top: 15px; }
+    }
+    @media (max-width: 600px) {
+      .nav { min-height: 66px; }
+      .menu-toggle { display: inline-block; }
+      nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--cream); padding: 18px 5%; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 15px; }
+      nav.open { display: flex; }
+      .cards, .skills-grid, .stat-list { grid-template-columns: 1fr; }
+      section { padding: 62px 0; }
+      .hero-card { min-height: 250px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">RASHIKA <span>RAGHU</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">Menu ☰</button>
+      <nav id="siteNav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Digital Marketing • Content • SEO</div>
+          <h1>Thoughtful content.<br><span>Meaningful</span> digital stories.</h1>
+          <p class="lead">I'm Rashika Raghu, an aspiring digital marketer interested in content marketing, SEO, social media, and creating clear, audience-focused digital experiences.</p>
+          <div class="actions">
+            <a class="btn primary" href="#projects">Explore my work</a>
+            <a class="btn" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Portfolio introduction">
+          <div class="monogram">RR.</div>
+          <div>
+            <div class="small">MY FOCUS</div>
+            <h2>Content that connects brands with people.</h2>
+            <p class="small">WordPress · Social Media · SEO Basics · Ads Practical Training</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="alt" id="about">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">A little about me</div><h2 class="section-title">Curious by nature.<br>Creative by practice.</h2></div>
+          <p class="section-intro">A starting point for my journey in digital marketing, with practical projects across travel and fashion brands.</p>
+        </div>
+        <div class="about-grid">
+          <p class="about-copy">I’m building my skills in content creation, website content, keyword research, social media marketing, and campaign planning. Through hands-on practice, I’ve worked on a WordPress travel website, created fashion-brand social content, and practised setting up Google Ads and Meta Ads campaigns. I enjoy learning new tools, keeping content organised, and communicating ideas clearly.</p>
+          <div class="stat-list">
+            <div class="stat"><strong>Content & Copywriting</strong><span>Website copy, headlines and brand storytelling</span></div>
+            <div class="stat"><strong>Social Media</strong><span>Content planning, creatives and posts</span></div>
+            <div class="stat"><strong>Website Content</strong><span>WordPress pages and on-page SEO basics</span></div>
+            <div class="stat"><strong>Campaign Practice</strong><span>Google Ads and Meta Ads setup exercises</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">Selected work</div><h2 class="section-title">Projects & practical learning</h2></div>
+          <p class="section-intro">A selection of projects and training activities. Campaigns listed as practical training were exercises and were not represented as live published campaigns.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-number">PROJECT 01 · 2026</div>
+            <h3>RR Holidays — Travel Website</h3>
+            <p>Built a travel website using WordPress to present holiday packages and destinations. Organised destination content and practised keyword research and on-page SEO fundamentals.</p>
+            <div class="tag-row"><span class="tag">WordPress</span><span class="tag">Website Content</span><span class="tag">SEO Basics</span></div>
+            <a class="card-link" href="#contact">Website link can be added here ↗</a>
+          </article>
+          <article class="card">
+            <div class="card-number">PROJECT 02</div>
+            <h3>Aura Luxe — Social Media Marketing</h3>
+            <p>Worked on Instagram and Facebook content for a clothing and accessories brand, including Canva promotional creatives, brand-focused posts and stories, and content planning.</p>
+            <div class="tag-row"><span class="tag">Instagram</span><span class="tag">Facebook</span><span class="tag">Canva</span><span class="tag">Content Calendar</span></div>
+            <a class="card-link" href="https://www.instagram.com/auraluxe.label/" target="_blank" rel="noopener noreferrer">View Instagram page ↗</a>
+          </article>
+          <article class="card">
+            <div class="card-number">PRACTICAL TRAINING</div>
+            <h3>Google Ads & Meta Ads</h3>
+            <p>Practised campaign setup, advertising objectives, audience targeting, ad creative preparation, and basic performance-tracking concepts as part of digital marketing training.</p>
+            <div class="tag-row"><span class="tag">Google Ads</span><span class="tag">Meta Ads Manager</span><span class="tag">Targeting</span><span class="tag">Ad Copy</span></div>
+            <div class="card-link">Training exercises · Not published as live campaigns</div>
+          </article>
+        </div>
+        <p class="note">Portfolio tip: add genuine screenshots of your WordPress pages, Canva designs, and practice campaign setup screens when available. Do not include private account information or claim results you have not measured.</p>
+      </div>
+    </section>
+
+    <section class="alt" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">What I work with</div><h2 class="section-title">Skills & tools</h2></div>
+          <p class="section-intro">Core skills from my resume and digital marketing training.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-box"><h3>Content & Writing</h3><p>Content creation, copywriting, website content, headline writing, brand storytelling, content strategy.</p></div>
+          <div class="skill-box"><h3>Digital Marketing</h3><p>SEO basics, keyword research, social media marketing, Google Ads, campaign planning, audience engagement.</p></div>
+          <div class="skill-box"><h3>Tools & Platforms</h3><p>WordPress, Canva, Meta Business Suite, Google Analytics (basic), MS Excel, LinkedIn.</p></div>
+          <div class="skill-box"><h3>Professional Skills</h3><p>Competitor research, brand consistency, content calendar planning, communication, teamwork, and a willingness to learn.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">Background</div><h2 class="section-title">Experience & learning</h2></div>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="date">2025 – Present · As listed in resume</div>
+            <h3>HR Intern — Nestlé India Ltd. · Coimbatore</h3>
+            <p>Supported recruitment activities such as resume screening and interview coordination; assisted with onboarding, documentation, leave management, and payroll support. Developed communication, process-adherence, and documentation skills.</p>
+          </article>
+          <article class="timeline-item">
+            <div class="date">2026</div>
+            <h3>Advanced AI Integrated Digital Marketing</h3>
+            <p>Career Ladder, Coimbatore. Training covered AI-powered marketing strategies, SEO, social media marketing, Google Ads, content marketing, and performance analytics.</p>
+          </article>
+        </div>
+        <p class="note">Please verify the internship title, employer, dates, and responsibilities before publishing this portfolio, so the website matches your actual experience accurately.</p>
+      </div>
+    </section>
+
+    <section class="alt" id="education">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">Education</div><h2 class="section-title">Education & certification</h2></div>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="date">2022 – 2025</div>
+            <h3>Hindusthan College of Arts & Science</h3>
+            <p>Bachelor of Science (Information Technology)</p>
+          </article>
+          <article class="timeline-item">
+            <div class="date">2026</div>
+            <h3>Advanced AI Integrated Digital Marketing</h3>
+            <p>Career Ladder, Coimbatore — completed training in AI-powered marketing strategies, SEO, Social Media Marketing, Google Ads, Content Marketing, and performance analytics.</p>
+          </article>
+        </div>
+        <div class="tag-row" style="margin-top:28px"><span class="tag">Tamil — Native</span><span class="tag">English — Professional Proficiency</span></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <div class="section-kicker">Contact</div>
+            <h2>Let’s create something meaningful.</h2>
+            <p>I’m interested in entry-level opportunities in content marketing and digital marketing. Feel free to connect with me.</p>
+          </div>
+          <div class="contact-details">
+            <div><span>Location</span>Singanallur, Coimbatore</div>
+            <a href="tel:+919344236743"><span>Phone</span>+91 93442 36743</a>
+            <div><span>Email</span>rashikaraghu30@gmail.com</div>
+            <div><span>LinkedIn</span>www.linkedin.com/in/rashika-raghu</div>
+          </div>
+        </div>
+        <p class="note">Before publishing: replace the email and LinkedIn placeholders with your correct links. Your resume showed “Gmail” without the full email address, so no address has been guessed.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Rashika Raghu</span>
+      <span>Digital Marketing Portfolio · Built with HTML, CSS & JavaScript</span>
+    </div>
+  </footer>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const siteNav = document.getElementById('siteNav');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = siteNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    siteNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        siteNav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
